@@ -1,5 +1,5 @@
 # brainfuck
- A Brainfuck interpeter written in awk.
+ A [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) interpeter written in awk.
 
 # How to run?
 ```shell script
