@@ -1,7 +1,7 @@
 # brainfuck
  A [Brainfuck](https://en.wikipedia.org/wiki/Brainfuck) interpeter written in awk.
 
-# How to run?
+### How to run?
 ```shell script
 awk -f brainfuck.awk examples/helloworld.fuck
 
@@ -10,4 +10,3 @@ awk -f brainfuck.awk examples/helloworld.fuck
 chmod -R 777 ./brainfuck.awk
 ./brainfuck.awk examples/helloworld.fuck
 ```
-
