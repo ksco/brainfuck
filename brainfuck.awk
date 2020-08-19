@@ -39,26 +39,14 @@ END {
     count = 0
     for (i = 0; i < program_length; ++i) {
         op = substr(program, i+1, 1)
-        if (op == ">")
-            ptr = min(ptr + 1, STORAGE_SIZE)
-        else if (op == "<")
-            ptr = max(ptr - 1, 0)
-        else if (op == "+")
-            storage[ptr] = min(storage[ptr] + 1, 2^8 - 1)
-        else if (op == "-")
-            storage[ptr] = max(storage[ptr] - 1, 0)
-        else if (op == ".") {
-            printf("%c", storage[ptr])
-        } else if (op == ",") {
-            printf("> ")
-            getline str <"-"
-            storage[ptr] = ord(str)
-        } else if (op == "[" && !storage[ptr])
-            # jump to loop end
-            i = jump_table[i] - 1
-        else if (op == "]" && storage[ptr])
-            # jump to loop start
-            i = jump_table[i] - 1
+        if (op == ">")          { ptr = min(ptr + 1, STORAGE_SIZE) }
+        else if (op == "<")     { ptr = max(ptr - 1, 0) }
+        else if (op == "+")     { storage[ptr] = min(storage[ptr] + 1, 2^8 - 1) }
+        else if (op == "-")     { storage[ptr] = max(storage[ptr] - 1, 0) }
+        else if (op == ".")     { printf("%c", storage[ptr]) }
+        else if (op == ",")     { printf("> "); getline str <"-"; storage[ptr] = ord(str) }
+        else if (op == "[" && !storage[ptr]) { i = jump_table[i] - 1 } # jump to loop end
+        else if (op == "]" && storage[ptr])  { i = jump_table[i] - 1 } # jump to loop start
     }
 }
 
